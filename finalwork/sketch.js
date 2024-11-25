@@ -27,7 +27,7 @@ function draw(){
     if(b.x < 0 || b.x > windowWidth){ 
       b.vx = -1 * b.vx; 
       b.x = constrain(b.x, 0, windowWidth); }
-    if(b.y < 0 || b.y > windowHeight && !keyIsDown(" ".charCodeAt(0))){ 
+    if(b.y < 0 || b.y > windowHeight){ 
       b.vy = -0.7 * b.vy;
       b.y = constrain(b.y, 0, windowHeight); }
 
