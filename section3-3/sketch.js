@@ -1,5 +1,6 @@
 // テキスト「キーボード操作に反応する」
 let x, y;
+let s;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -9,13 +10,19 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
-  ellipse(x, y, 50);
-  if(keyIsDown(LEFT_ARROW)){ x -= 5; }
-  if(keyIsDown(RIGHT_ARROW)){ x += 5; }
-  if(keyIsDown(UP_ARROW)){ y -= 5; }
-  if(keyIsDown(DOWN_ARROW)){ y += 5; }
-  if(keyIsDown("A".charCodeAt(0))){ x+= 10; }
-  if(keyIsDown(" ".charCodeAt(0))){ x-= 10; }
+  strokeWeight(3)
+  line(0, y + 52, width, y +52);
+  strokeWeight(1);
+  ellipse(x, y, 100);
+  if(keyIsDown(" ".charCodeAt(0))){ s = 10; }
+  else{ s = 5 }
+  if(keyIsDown(LEFT_ARROW)){ x -= s; }
+  if(keyIsDown(RIGHT_ARROW)){ x += s; }
+//  if(keyIsDown(UP_ARROW)){ y -= 5; }
+//  if(keyIsDown(DOWN_ARROW)){ y += 5; }
+  // if(keyIsDown("A".charCodeAt(0))){ x+= 10; }
+  // if(keyIsDown(" ".charCodeAt(0))){ x-= 10; }
+  
 }
 
 // イベントハンドラを使用するパターン

@@ -11,11 +11,20 @@ function setup(){
     else{
       console.log(i + "年はうるう年ではありません");
     }
+
+    let diy = daysInYear(i)
+    console.log(i + "年は" + diy + "日間")
+    
   }
+
+  let w = dayOfWeek(2018, 3, 8);
+  let p = dayOfWeekAsString(w);
+  console.log(p);
+
 }
 
 function calendar(y, m){
-  let dow = dayOfWeek(y, m, 1);
+  // let dow = dayOfWeek(y, m, 1);
   for(let d = 1; d <= daysInMonth(y, m); d++){
     // BLANK[3] (hint: まずは daysInYear, dayOfWeek を作ろう)
   }
@@ -27,6 +36,7 @@ function isLeapYear(y){
 
 function daysInYear(y){
   // BLANK[1]
+  return isLeapYear(y) ? 366:365;
 }
 
 function daysInMonth(y, m){
@@ -41,6 +51,7 @@ function daysInMonth(y, m){
   }
 }
 
+//その年のうちの何日目かを数える関数
 function dayOfYear(y, m, d){
   let count = 0;
   for(let i = 1; i < m; i++){
@@ -51,7 +62,33 @@ function dayOfYear(y, m, d){
 
 function dayOfWeek(y, m, d){
   // BLANK[2]
+  let count1 = 0;
+  for(let i = 1990; i < y; i++){
+    count1 += daysInYear(i);
+  }
+  let count2 = 0;
+  for(let i = 1; i < m; i++){
+    count2 += daysInMonth(y, i);
+  }
+  let count3 = 0;
+  for(let i = 1; i <= d; i++){
+    count3 += 1;
+  }
+  
+  // console.log(count1, count2, count3);
+  
+  let countsum = count1 + count2 + count3
+  
+  // console.log(countsum);
+
+  let n = countsum % 7;
+
+  return n;
 }
+
+
+
+
 
 function dayOfWeekAsString(dow){
   const a = ["日", "月", "火", "水", "木", "金", "土", "日"];
